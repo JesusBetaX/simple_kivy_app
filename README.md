@@ -18,7 +18,7 @@ python -m PyInstaller --onefile --name myApp src\main.py
 from kivy_deps import sdl2, glew
 ```
 
-3.2 Edite los argumentos del comando **EXE**
+3.2 Edite los argumentos del comando **EXE** del mismo archivo.
 ```python
 *[Tree(p) for p in (sdl2.dep_bins + glew.dep_bins)],
 ```
