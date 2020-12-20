@@ -1,10 +1,9 @@
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager
 
-from model.user import User
-
 from app.home import Home
 from app.login import Login
+from model.user import User
 
 class KivyApp(App):
     user = User() 
