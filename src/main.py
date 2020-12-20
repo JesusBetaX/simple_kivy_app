@@ -1,9 +1,9 @@
 import os, sys
-from kivy.resources import resource_add_path, resource_find
 
+from kivy import Config
 from kivy.app import App
 from kivy.lang import Builder
-from kivy import Config
+from kivy.resources import resource_add_path, resource_find
 from kivy.uix.screenmanager import ScreenManager
 
 from app.home import Home
