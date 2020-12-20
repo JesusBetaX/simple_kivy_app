@@ -1,4 +1,5 @@
 from kivy.app import App
+from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 
 from app.home import Home
@@ -36,4 +37,5 @@ if __name__ == '__main__':
     from kivy import Config
     Config.set('graphics', 'multisamples', '0')
 
+    Builder.load_file("view/views.kv")
     KivyApp().run()

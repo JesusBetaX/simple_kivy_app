@@ -40,3 +40,5 @@ python -m PyInstaller myApp.spec
 ```
 
 El paquete compilado estará en el directorio **\dist** y constará de un solo archivo ejecutable.
+
+5. Copiar la carpeta **view** en **\dist**
