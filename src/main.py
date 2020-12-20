@@ -1,5 +1,9 @@
+import os, sys
+from kivy.resources import resource_add_path, resource_find
+
 from kivy.app import App
 from kivy.lang import Builder
+from kivy import Config
 from kivy.uix.screenmanager import ScreenManager
 
 from app.home import Home
@@ -10,6 +14,7 @@ class KivyApp(App):
     user = User() 
 
     def build(self):
+        self.root = Builder.load_file("view/views.kv")
         manager = ScreenManager()
 
         manager.add_widget(Login(name='login'))
@@ -31,11 +36,10 @@ class KivyApp(App):
     #     )
 
 if __name__ == '__main__':
-    import os
     os.environ['KIVY_GL_BACKEND'] = 'sdl2'  # 'glew' #angle_sdl2'
-
-    from kivy import Config
     Config.set('graphics', 'multisamples', '0')
 
-    Builder.load_file("view/views.kv")
+    if hasattr(sys, '_MEIPASS'):
+        resource_add_path(os.path.join(sys._MEIPASS))
+
     KivyApp().run()
