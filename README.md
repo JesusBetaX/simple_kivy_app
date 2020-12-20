@@ -18,23 +18,29 @@ python -m PyInstaller --onefile --name myApp src\main.py
 from kivy_deps import sdl2, glew
 ```
 
-3.2 Edite los argumentos del comando **EXE** del mismo archivo.
+3.2 Edite los argumentos del comando **EXE** del mismo archivo. Agregar la siguiente línea:
 ```python
 *[Tree(p) for p in (sdl2.dep_bins + glew.dep_bins)],
 ```
 Quedará de esta manera
 ```python
-exe = EXE(pyz, Tree('examples-path\\demo\\touchtracer\\'),
-     a.scripts,
-     a.binaries,
-     a.zipfiles,
-     a.datas,
-     *[Tree(p) for p in (sdl2.dep_bins + glew.dep_bins)],
-     upx=True
-     name='touchtracer')
+exe = EXE(pyz,
+          a.scripts,
+          a.binaries,
+          a.zipfiles,
+          a.datas,
+          *[Tree(p) for p in (sdl2.dep_bins + glew.dep_bins)],
+          name='myApp',
+          debug=False,
+          bootloader_ignore_signals=False,
+          strip=False,
+          upx=True,
+          upx_exclude=[],
+          runtime_tmpdir=None,
+          console=True )
 ```
 
-3.3 Edite los argumentos del comando **Analysis** del mismo archivo. Para agregar los recursos de la aplicación como imágenes, música, etc.
+3.3 Edite los argumentos del comando **Analysis** del mismo archivo. Para agregar los recursos de la aplicación como imágenes, música, etc. Agregar la siguiente línea:
 ```python
 datas=[('src/view', 'view')],
 ```
