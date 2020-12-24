@@ -5,7 +5,8 @@ class Home(Screen):
 
     def do_logout(self):
         app = App.get_running_app()
-        print(app.session.get('user'))
+        print(app.session['user'])
+        del app.session['user']
 
         self.manager.transition = SlideTransition(direction="right")
         self.manager.current = 'login'
