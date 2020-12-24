@@ -12,6 +12,7 @@ class Login(Screen):
             username=loginText,
             password=passwordText
         )
+
         app.session['user'] = user
 
         self.manager.transition = SlideTransition(direction="left")
