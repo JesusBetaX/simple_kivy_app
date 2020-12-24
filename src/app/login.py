@@ -8,15 +8,18 @@ class Login(Screen):
     def do_login(self, loginText, passwordText):
         app = App.get_running_app()
 
-        user = User(
-            username=loginText,
-            password=passwordText
-        )
+        user = User(username=loginText, password=passwordText)
 
-        app.session['user'] = user
+        if user.valid():
+            app.session['user'] = user
 
-        self.manager.transition = SlideTransition(direction="left")
-        self.manager.current = 'home'
+            self.ids['llogin'].text = "Login"
+            self.manager.transition = SlideTransition(direction="left")
+            self.manager.current = 'home'
+
+        else:
+            self.ids['llogin'].text = "Login (username or password incorrect)"
+
 
     def resetForm(self):
         self.ids['login'].text = ""

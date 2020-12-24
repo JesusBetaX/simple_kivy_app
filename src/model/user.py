@@ -3,6 +3,9 @@ class User:
         self.username = username
         self.password = password
 
+    def valid(self):
+        return self.username == 'root' and self.password == 'admin'
+
     def __str__(self):
         return (
             "User{username=%s, password=%s}" % 
