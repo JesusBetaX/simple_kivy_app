@@ -13,9 +13,9 @@ class Login(Screen):
         if user.valid():
             app.session['user'] = user
 
-            self.ids['llogin'].text = "Login"
             self.manager.transition = SlideTransition(direction="left")
             self.manager.current = 'home'
+            self.ids['llogin'].text = "Login"
 
         else:
             self.ids['llogin'].text = "Login (username or password incorrect)"
