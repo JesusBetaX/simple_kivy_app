@@ -8,4 +8,3 @@ class User:
             "User{username=%s, password=%s}" % 
             (self.username, self.password)
         )
-        
