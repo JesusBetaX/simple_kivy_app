@@ -3,7 +3,7 @@ from kivy.uix.screenmanager import Screen, SlideTransition
 
 class Home(Screen):
 
-    def disconnect(self):
+    def do_logout(self):
         app = App.get_running_app()
         print(app.session.get('user'))
 
